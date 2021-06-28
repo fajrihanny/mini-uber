@@ -56,7 +56,7 @@ def create_proxy(sender_number,receiver_number,message):
     # add participants
     sender_sid = add_participants(sender_number,sender,service_sid,session_sid)
     receiver_sid = add_participants(receiver_number,receiver,service_sid,session_sid)
-    interaction_sid = send_initial_message(receiver_sid,service_sid,session_sid,message)
+    interaction_sid = send_initial_call(receiver_sid,service_sid,session_sid,message)
     return interaction_sid
 
 def add_participants(phonenumber,name,service,session):
