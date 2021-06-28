@@ -63,10 +63,9 @@ def add_participants(phonenumber,name,service,session):
     participant = client.proxy.services(service).sessions(session).participants.create(friendly_name=name, identifier=phonenumber,proxy_identifier=proxy_number)
     return participant.sid
 
-def send_initial_message(participant_sid,service,session,message_to_send):
-    message_interaction = client.proxy.services(service).sessions(session).participants(participant_sid).message_interactions.create(body=message_to_send)
-    return message_interaction.sid
+def send_initial_call(participant_sid,service,session,message_to_send):
+    voice_interaction = client.proxy.services(service).sessions(session).participants(participant_sid).message_interactions.create(body=message_to_send)
+    return voice_interaction.sid
 
 if __name__ == "__main__":
     app.run(debug=True)
-
